@@ -12,13 +12,16 @@ const TableHeader = () => {
     )
 }
 
-const TableBody = () => {
-    const {data} = this.props;
+const TableBody = (props) => {
+    const {data,removeCharacter} = props;
     const rows = data.map( (item,index) =>{
         return (
             <tr key={index}>
                 <td>{item.name}</td>
                 <td>{item.job}</td>
+                <td>
+                    <button onClick={ () => {removeCharacter(index)}}>Delete</button>
+                </td>
             </tr>
         )
     })
@@ -34,12 +37,12 @@ const TableBody = () => {
 class Table extends React.Component{
 
     render(){
-    const {CharacterData} = this.props;
+    const {CharacterData, removeCharacter} = this.props;
 
         return (
             <table>
             <TableHeader />
-            <TableBody data ={CharacterData}/>
+            <TableBody data ={CharacterData} removeCharacter={removeCharacter}/>
             </table>
         )
     }
