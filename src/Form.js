@@ -18,7 +18,8 @@ class Form extends React.Component{
  }
  //onSubmit handle
  onSubmitHandle = () => {
-     
+     this.props.handleSubmit(this.state)
+
  }
 
 
@@ -27,7 +28,7 @@ class Form extends React.Component{
     
          return (
              <div>
-                 <form onSubmit={} >
+                 <form onSubmit={this.onSubmitHandle} >
                     <label htmlFor="name"> Name : </label>
                         <input type="text" name="name" value={name} onChange={onChangeHandle} />
                     <labe htmlFor="job"> Job </labe>
@@ -44,3 +45,5 @@ class Form extends React.Component{
 
 
 }
+
+export default Form;
