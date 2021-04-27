@@ -8,40 +8,29 @@ class App extends React.Component {
     super(props)
     this.state = {
          characters: [
-          {
-            name:"Sarah",
-            job: "DevOps Engineer"
-          },
-          {
-            name:"Rob",
-            job: "Cloud Engineer"
-          },
-          {
-            name: "John",
-            job: "Architect"
-          }
+         
          ]
     }
+  }
   
-  
-  const {characters} = this.state;
 
-   removeCharacter = (index) => {
-    this.setState({
-      characters: characters.filter( (character,i) => {
-          return i !== index;
+    removeCharacter = (index) => {
+      const { characters } = this.state;
+      this.setState({
+          characters: characters.filter( (character,i) => {
+            return i !== index;
       })
     })
   }
-  }
+  
  render() { 
-    
+  const {characters} = this.state;
   
     return (
     <div className="App">
        <h1>Details you have Entered</h1>
       
-       <Table characterData={characters} removeCharacter = {this.removeCharacter}/>
+       <Table CharacterData={characters} removeCharacter = {this.removeCharacter}/>
     </div>
   )
 }

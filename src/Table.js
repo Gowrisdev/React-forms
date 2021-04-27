@@ -9,27 +9,28 @@ const TableHeader = () => {
                 <th>Job</th>
             </tr>
         </thead>
-    )
+    );
 }
 
-const TableBody = (props) => {
-    const {data,removeCharacter} = props;
-    const rows = data.map( (item,index) =>{
+const TableBody = props => {
+    
+    const rows = props.CharacterData.map((item,index) => {
         return (
             <tr key={index}>
                 <td>{item.name}</td>
                 <td>{item.job}</td>
                 <td>
-                    <button onClick={ () => {removeCharacter(index)}}>Delete</button>
+                    <button onClick={ () => {props.removeCharacter(index)}}>Delete</button>
                 </td>
             </tr>
-        )
-    })
+        );
+    });
 
     
     return (
         <tbody>
             {rows}
+     
         </tbody>
     )
 }
@@ -42,7 +43,7 @@ class Table extends React.Component{
         return (
             <table>
             <TableHeader />
-            <TableBody data ={CharacterData} removeCharacter={removeCharacter}/>
+            <TableBody CharacterData ={CharacterData} removeCharacter={removeCharacter}/>
             </table>
         )
     }
