@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 class Form extends React.Component{
     constructor(props){
@@ -17,9 +17,10 @@ class Form extends React.Component{
     })
  }
  //onSubmit handle
- onSubmitHandle = () => {
+ onSubmitHandle = (event) => {
+     event.preventDefault();
      this.props.handleSubmit(this.state)
-
+     this.setState(this.state);
  }
 
 
@@ -30,9 +31,10 @@ class Form extends React.Component{
              <div>
                  <form onSubmit={this.onSubmitHandle} >
                     <label htmlFor="name"> Name : </label>
-                        <input type="text" name="name" value={name} onChange={onChangeHandle} />
+                        <input type="text" name="name" value={name} onChange={this.onChangeHandle} />
                     <labe htmlFor="job"> Job </labe>
                         <input type="text" name="job" value={job} onChange={this.onChangeHandle} />
+                        <input type='submit' />
                  </form>
              </div>
 

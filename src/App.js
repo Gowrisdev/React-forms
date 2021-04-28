@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 import './App.css';
 import Table from './Table.js';
 import Form from './Form.js';
@@ -35,11 +35,11 @@ class App extends React.Component {
   const {characters} = this.state;
   
     return (
-    <div className="App">
+    <div className="container">
        <h1>Details you have Entered</h1>
-      
-       <Table CharacterData={characters} removeCharacter = {this.removeCharacter}/>
-
+      <h2>Add Name and Job</h2>
+       <Table CharacterData={characters} removeCharacter = {this.removeCharacter}/> <hr></hr>
+        <h3>Add New</h3>
        <Form handleSubmit={this.handleSubmit}/>
     </div>
   )
